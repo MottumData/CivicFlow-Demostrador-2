@@ -1,9 +1,8 @@
-# VA-Codexca
+# CivicFlow - Demostrador 2
 
 ## Descripción
 
-Este repositorio contiene la implementación del asistente virtual para EMPRESA. La aplicación está desarrollada
-completamente en Python, utilizando Streamlit tanto para la interfaz de usuario como para el backend.
+Este repositorio contiene el demostrador número 2 para el proyecto CivicFlow. Este consistirá de un agente de transporte, el cual se dedicará a atender las consultas e incidencias de los usuarios y recopilará los datos, posteriormente almacenándolos en airtable.
 
 > **Nota:** La versión de Python utilizada para el desarrollo de este proyecto es la 3.11
 

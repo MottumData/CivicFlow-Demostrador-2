@@ -1,9 +1,9 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="Asistente Virtual de Codexca",
+    name="Agente de transporte CivicFlow",
     version="0.0.1",
-    description="Asistente Virtual para Codexca a través de LLM e interfaz creada con Streamlit",
+    description="Agente de transporte a través de LLM e interfaz creada con Streamlit",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     author="Mottum, Arturo Ortiz",
