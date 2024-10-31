@@ -1,0 +1,11 @@
+services:
+  app:
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8501:8501"
+
+    restart: on-failure
