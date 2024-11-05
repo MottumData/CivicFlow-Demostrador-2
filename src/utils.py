@@ -5,20 +5,16 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+'''
 
 def show_title_image():
     cols = st.columns([1, 1, 1])
     with cols[1]:
-        # logo_big_path = "assets/img/logo_codexca_big.png"
-        st.markdown(
-            f"""
-             <div style='text-align: center; margin-bottom:30px'>
-                 <img src='https://www.codexca.com/wp-content/uploads/2022/02/codexca.png' style='pointer-events: none;'/>
-             </div>
-             """,
-            unsafe_allow_html=True
-        )
-
+        logo_big_path = "assets/img/logo_CyG.png"
+        image = Image.open(logo_big_path)
+        resized_image = image.resize((int(image.width * 200 / image.height), 200))  # Adjust the height to 20 pixels
+        st.image(resized_image)
+'''
 
 def show_icon_image():
     cols = st.columns([1, 2, 1])
