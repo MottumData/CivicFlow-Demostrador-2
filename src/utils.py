@@ -2,6 +2,7 @@ from PIL import Image
 import streamlit as st
 import os
 from dotenv import load_dotenv
+import base64
 
 load_dotenv()
 
@@ -26,25 +27,42 @@ def show_icon_image():
 
 
 def show_footer():
+    # Obtener la ruta absoluta de la imagen
+    current_dir = os.path.dirname(__file__)
+    image_path = os.path.abspath(os.path.join(current_dir, "../assets/img/Logo_footer.png"))
+    
+    # Codificar la imagen en Base64
+    try:
+        with open(image_path, "rb") as image_file:
+            encoded_string = base64.b64encode(image_file.read()).decode()
+    except FileNotFoundError:
+        encoded_string = "" 
+        
     st.markdown(
-        """
+        f"""
         <style>
         @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
-        .footer {
+        .footer {{
             position: fixed;
             left: 0;
             bottom: 0;
             width: 100%;
-            background-color: white;
+            background-color: dark;
             text-align: right;
             padding: 10px;
             font-size: 14px;
             color: grey;
             font-family: 'Manrope', sans-serif;
-        }
+            z-index: 999;
+        }}
+        
+        .footer img {{
+            height: 80px; /* Ajusta el tamaño según tus necesidades */
+            margin-right: 10px; /* Espacio entre la imagen y el texto */
+        }}
         </style>
         <div class="footer">
-            Made with &#10084 by Mottum.</a>
+            <img src="data:image/png;base64,{encoded_string}" alt="Logo">
         </div>
         """,
         unsafe_allow_html=True
