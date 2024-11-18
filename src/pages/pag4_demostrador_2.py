@@ -8,7 +8,7 @@ from PyPDF2 import PdfReader
 from datetime import datetime
 
 # Set up OpenAI API key
-openai.api_key = st.secrets("OPENAI_API_KEY")
+openai.api_key = st.secrets["OpenAI_key"]
 
 # Function to get response from OpenAI
 def get_response(messages):
@@ -71,6 +71,7 @@ def show_demostrador_page():
     fecha_hoy = datetime.now().strftime("%d/%m/%Y")
         
     st.warning("Este asistente virtual está diseñado para ayudar con cuestiones de transporte público. Por favor, asegúrese de proporcionar información precisa para obtener la mejor asistencia posible.")
+
     
     # Initialize chat history
     # Inicializar historial de chat
