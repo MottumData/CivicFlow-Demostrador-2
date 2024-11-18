@@ -7,3 +7,6 @@ runOnSave = true
 
 [ui]
 hideTopBar = true
+
+[server]
+fileWatcherType = "none"
