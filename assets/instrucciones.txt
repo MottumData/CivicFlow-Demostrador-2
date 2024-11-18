@@ -29,6 +29,568 @@ Puerto del Rosario a Gran Tarajal: 4.65 €
 Puerto del Rosario a Costa Calma: 7.55 €
 Puerto del Rosario a Barranco de los Canarios: 8.55 €
 
+Sentido: Gran Tarajal - Morro Jable
+Número de Paradas: 36
+Duración del Viaje: 65 minutos
+Horario:
+Lunes a Domingo: 20:00
+Paradas:
+Calle León Y Castillo, 10
+Lugar El Charco, 42
+Lugar El Charco, 22
+Lugar La Fuentita, 10
+Lugar Mazacote, 22
+FV-2
+Diseminado Degollada Del Moro, 2
+Diseminado Degollada Del Moro, 7
+Lugar Tarajalejo, 55
+Lugar Tarajalejo, 19
+Lugar Tarajalejo, 37
+Lugar Tarajalejo, 12
+Avenida Las Palmeras, 8a
+Urbanización Puerto Azul F, 5
+Urbanización Herbania, 22
+FV-2
+FV-2 y FV-56
+Carretera General Jandía, 22
+Calle Montaña Azufra, 5
+Esquinzo-Butihondo, 2a
+Calle La Parábola, 11
+Mal Nombre
+FV-2, 2
+Gaviotas
+Calle El Quijote, 1
+Avenida Del Saladar, 23
+FV-2, 3
+Avenida Del Saladar, 2
+Calle Buenavista, 15
+Calle Taifa, 2
+Calle Pastores, 2
+Avenida Tomás Grau Gurrea, 8
+Calle Mascona, 15
+Plaza De La Constitución, 4
+Calle El Viejo Barco, 9
+FV-2, 19
+
+
+Sentido: Morro Jable - Gorriones - Puerto del Rosario
+Número de Paradas: 56
+Duración del Viaje: 121 minutos
+Horario:
+Lunes a Viernes: 15:00 - 18:15
+Sábados y Domingos: Sin servicio
+Paradas:
+Calle La Serreta, 1
+Calle Montaña Azufra, 5
+Esquinzo-Butihondo, 2a
+Calle La Parábola, 11
+Mal Nombre
+Camino Pájara, 4
+Esquinzo
+Calle Lanzarote, 96
+Calle César Manrique, 10
+FV-2, 2
+Gaviotas
+Calle El Quijote, 1
+Avenida Del Saladar, 23
+FV-2, 3
+Avenida Del Saladar, 2
+Calle Buenavista, 15
+Calle Taifa, 2
+Calle Pastores, 2
+Avenida Tomás Grau Gurrea, 8
+Calle Mascona, 15
+Plaza De La Constitución, 4
+Calle El Viejo Barco, 9
+FV-2, 19
+Calle El Quijote, 1
+Gaviotas
+FV-2, 2
+Calle Las Brisas, 6
+Calle La Mareta, 37
+Calle Puerto De La Cebada, 31
+Camino Fayagua, 2
+Mal Nombre
+Carretera General A Morrojable, 1
+Risco Del Paso
+Calle Crisálida, 1
+Costa Calma
+Avenida Jahn Reisen, 7
+Calle Montaña Azufra, 5
+Calle Artistas Canarios, 2
+FV-2
+FV-2
+Lugar Tarajalejo, 37
+Lugar Tarajalejo, 1
+Diseminado Degollada Del Moro, 18
+Diseminado Degollada Del Moro, 2
+FV-2
+Llanos De La Higuera I, 30
+Lugar Llanos De La Higuera Ip01, 9a
+Barrio Florida, 4
+Barrio Las Rosas, 4
+FV-20
+Diseminado Calle Eustaquio Gopar, 1
+Calle Los Andenes, 24
+Calle Entallada, 54
+Calle La Ereta, 9
+Calle Melin Díaz Hernández, 18
+Agregado Agua De Bueyes, 6
+
+Sentido: Morro Jable - Gran Tarajal
+Número de Paradas: 30
+Duración del Viaje: 62 minutos
+Horario:
+Lunes a Viernes: 20:00
+Domingo: Sin servicio
+Paradas:
+Calle Real, 9
+Diseminado El Molino, 1
+Lugar Ampuyenta, 49
+Parada
+FV-207, 22
+Calle Antonio Espinosa, 107
+Calle Cataluña, 45
+Caserio Tesjuates, 58
+Travesía Llanos Pelados, 10
+FV-20, 7
+Calle El Henequen, 19
+Calle La Barrilla, 14
+Urbanización Llanos Del Sol, 14
+Estación Insular De Guaguas
+Avenida Tomás Grau Gurrea, 8
+Calle Mascona, 15
+Plaza De La Constitución, 4
+Calle El Viejo Barco, 9
+FV-2, 19
+Calle El Quijote, 1
+Gaviotas
+FV-2, 2
+Calle Las Brisas, 6
+Calle La Mareta, 37
+Calle Puerto De La Cebada, 31
+Camino Fayagua, 2
+Mal Nombre
+Carretera General A Morrojable, 1
+Costa Calma
+Avenida Jahn Reisen, 7
+
+
+Sentido: Puerto del Rosario - Gorriones - Morro Jable
+Número de Paradas: 54
+Duración del Viaje: 134 minutos
+Horario:
+Lunes a Viernes: 15:00 - 17:30
+Sábados y Domingos: Sin servicio
+Paradas:
+Avenida Diego Miller, 2
+Calle Antigua, 12
+Calle El Henequen, 15
+FV-20, 7
+Travesía Llanos Pelados, 9
+Caserio Tesjuates, 57
+Calle Cataluña, 46
+Calle Antonio Espinosa, 97
+Lugar Ampuyenta, 4
+Camino Ampuyenta, 48a
+Diseminado El Molino, 1
+Calle Real, 4
+Calle Virgen De Antigua, 61
+FV-20, 33
+Calle Isla De Lobos, 1
+Agregado Agua De Bueyes, 78
+Calle Matías Hernández López, 2
+Calle La Ereta, 9
+Calle D, 58
+Diseminado Calle Eustaquio Gopar, 1
+Barrio Las Rosas, 4
+Barrio Florida, 4
+Lugar Llanos De La Higuera Ip01, 7e
+Llanos De La Higuera I, 35
+FV-2
+Diseminado Degollada Del Moro, 2
+Diseminado Degollada Del Moro, 7
+Lugar Tarajalejo, 55
+Lugar Tarajalejo, 19
+Lugar Tarajalejo, 37
+Lugar Tarajalejo, 12
+Urbanización Herbania, 22
+FV-2
+FV-2 y FV-56
+Carretera General Jandía, 22
+Calle Montaña Azufra, 5
+Esquinzo-Butihondo, 2a
+Calle La Parábola, 11
+Mal Nombre
+FV-2, 2
+Gaviotas
+Calle El Quijote, 1
+Avenida Del Saladar, 23
+FV-2, 3
+Avenida Del Saladar, 2
+Calle Buenavista, 15
+Calle Taifa, 2
+Calle Pastores, 2
+Avenida Tomás Grau Gurrea, 8
+Calle Mascona, 15
+Plaza De La Constitución, 4
+Calle El Viejo Barco, 9
+FV-2, 19
+Puerto De Morro Jable
+
+Sentido: Puerto del Rosario - Gran Tarajal
+Número de Paradas: 28
+Duración del Viaje: 71 minutos
+Horario:
+Sábado: 17:00
+Domingo: 15:30
+Paradas:
+FV-2
+FV-2 y FV-56
+Carretera General Jandía, 22
+Calle Montaña Azufra, 5
+Esquinzo-Butihondo, 2a
+Calle La Parábola, 11
+Calle Crisálida, 1
+Mal Nombre
+Camino Pájara, 4
+Esquinzo
+Calle Lanzarote, 96
+Calle César Manrique, 10
+FV-2, 2
+Gaviotas
+Calle El Quijote, 1
+Avenida Del Saladar, 23
+FV-2, 3
+Avenida Del Saladar, 2
+Calle Buenavista, 15
+Calle Taifa, 2
+Calle Pastores, 2
+Estación Insular De Guaguas
+Avenida Diego Miller, 2
+Calle Antigua, 12
+Calle El Henequen, 15
+FV-20, 7
+Travesía Llanos Pelados, 9
+Caserio Tesjuates, 57
+
+
+Sentido: Puerto del Rosario - Las Playitas - Morro Jable
+Número de Paradas: 65
+Duración del Viaje: 146 minutos
+Horario:
+Lunes a Viernes: 06:00 - 12:30
+Sábado y Domingo: 06:00
+Paradas:
+Calle Antonio Espinosa, 97
+Lugar Ampuyenta, 4
+Camino Ampuyenta, 48a
+Diseminado El Molino, 1
+Calle Real, 4
+Calle Virgen De Antigua, 61
+FV-20, 33
+Calle Isla De Lobos, 1
+Agregado Agua De Bueyes, 78
+Calle Matías Hernández López, 2
+Calle La Ereta, 9
+Calle D, 58
+Diseminado Calle Eustaquio Gopar, 1
+Barrio Las Rosas, 4
+Barrio Florida, 4
+Lugar Llanos De La Higuera Ip01, 7e
+Llanos De La Higuera I, 35
+Lugar El Charco, 4
+Parada
+Calle León Y Castillo, 10
+Estación Insular De Guaguas
+Avenida Diego Miller, 2
+Calle Antigua, 12
+Calle El Henequen, 15
+FV-20, 7
+Travesía Llanos Pelados, 9
+Caserio Tesjuates, 57
+Calle Cataluña, 46
+Lugar El Charco, 37
+Lugar El Charco, 17
+Hotel Playitas
+Calle Vigan, 31
+Calle Tindaya, 14
+Calle Rey Juan Carlos I, 38
+Calle Isa Majorera, 8
+Lugar La Fuentita, 10
+FV-2
+Lugar Mazacote, 22
+Diseminado Degollada Del Moro, 2
+Diseminado Degollada Del Moro, 7
+Lugar Tarajalejo, 55
+Lugar Tarajalejo, 19
+Lugar Tarajalejo, 37
+Lugar Tarajalejo, 12
+Urbanización Puerto Azul F, 5
+Urbanización Herbania, 22
+FV-2
+FV-2 y FV-56
+Carretera General Jandía, 22
+Calle Montaña Azufra, 5
+Esquinzo-Butihondo, 2a
+Calle La Parábola, 11
+Mal Nombre
+FV-2, 2
+Gaviotas
+Calle El Quijote, 1
+Avenida Del Saladar, 23
+FV-2, 3
+Avenida Del Saladar, 2
+Calle Buenavista, 15
+Calle Taifa, 2
+Calle Pastores, 2
+Avenida Tomás Grau Gurrea, 8
+Calle Mascona, 15
+Plaza De La Constitución, 4
+
+Sentido: Puerto del Rosario - Morro Jable
+Número de Paradas: 49
+Duración del Viaje: 121 minutos
+Horario:
+Lunes a Viernes: 07:00 - 17:30
+Sábado y Domingo: 07:00 - 17:30
+Paradas:
+Lugar Mazacote, 22
+FV-2
+Diseminado Degollada Del Moro, 2
+Diseminado Degollada Del Moro, 7
+Lugar Tarajalejo, 55
+Lugar Tarajalejo, 19
+Lugar Tarajalejo, 37
+Lugar Tarajalejo, 12
+Urbanización Herbania, 22
+FV-2
+FV-2 y FV-56
+Carretera General Jandía, 22
+Calle Montaña Azufra, 5
+Esquinzo-Butihondo, 2a
+Calle La Parábola, 11
+Mal Nombre
+FV-2, 2
+Gaviotas
+Calle El Quijote, 1
+Avenida Del Saladar, 23
+FV-2, 3
+Avenida Del Saladar, 2
+Calle Buenavista, 15
+Calle Taifa, 2
+Calle Pastores, 2
+Estación Insular De Guaguas
+Avenida Diego Miller, 2
+Calle Antigua, 12
+Calle El Henequen, 15
+FV-20, 7
+Travesía Llanos Pelados, 9
+Caserio Tesjuates, 57
+Calle Cataluña, 46
+Calle Antonio Espinosa, 97
+Lugar Ampuyenta, 4
+Camino Ampuyenta, 48a
+Diseminado El Molino, 1
+Calle Real, 4
+Calle Virgen De Antigua, 61
+FV-20, 33
+Calle Isla De Lobos, 1
+Agregado Agua De Bueyes, 78
+Calle Matías Hernández López, 2
+Calle La Ereta, 9
+Calle D, 58
+Diseminado Calle Eustaquio Gopar, 1
+Barrio Las Rosas, 4
+Barrio Florida, 4
+Lugar Llanos De La Higuera Ip01, 7e
+
+
+Sentido: Puerto del Rosario - Puerto De Morro Jable
+Número de Paradas: 52
+Duración del Viaje: 112 minutos
+Horario:
+Lunes a Viernes: 07:30 - 15:30
+Sábado: 10:30 - 14:30
+Domingo: 11:30 - 16:00
+Paradas:
+Calle Montaña Azufra, 5
+Esquinzo-Butihondo, 2a
+Calle La Parábola, 11
+Mal Nombre
+FV-2, 2
+Gaviotas
+Calle El Quijote, 1
+Avenida Del Saladar, 23
+FV-2, 3
+Avenida Del Saladar, 2
+Calle Buenavista, 15
+Calle Taifa, 2
+Calle Pastores, 2
+Estación Insular De Guaguas
+Avenida Diego Miller, 2
+Calle Antigua, 12
+Calle El Henequen, 15
+FV-20, 7
+Travesía Llanos Pelados, 9
+Caserio Tesjuates, 57
+Calle Cataluña, 46
+Calle Antonio Espinosa, 97
+Lugar Ampuyenta, 4
+Camino Ampuyenta, 48a
+Diseminado El Molino, 1
+Calle Real, 4
+Calle Virgen De Antigua, 61
+FV-20, 33
+Calle Isla De Lobos, 1
+Agregado Agua De Bueyes, 78
+Calle Matías Hernández López, 2
+Calle La Ereta, 9
+Calle D, 58
+Diseminado Calle Eustaquio Gopar, 1
+Barrio Las Rosas, 4
+Barrio Florida, 4
+Lugar Llanos De La Higuera Ip01, 7e
+Llanos De La Higuera I, 35
+FV-2
+Diseminado Degollada Del Moro, 2
+Diseminado Degollada Del Moro, 7
+Lugar Tarajalejo, 55
+Lugar Tarajalejo, 19
+Lugar Tarajalejo, 37
+Lugar Tarajalejo, 12
+Urbanización Herbania, 22
+FV-2
+FV-2 y FV-56
+Carretera General Jandía, 22
+Calle Montaña Azufra, 5
+Esquinzo-Butihondo, 2a
+Calle La Parábola, 11
+
+Sentido: Puerto del Rosario - Triquivijate - Morro Jable
+Número de Paradas: 52
+Duración del Viaje: 112 minutos
+Horario:
+Lunes a Viernes: 06:30 - 19:00
+Sábado: 07:00 - 19:00
+Domingo: Sin servicio
+Paradas:
+Calle Pastores, 2
+Calle Manuel Sánchez Ramos, 11
+Calle Los Atolladeros, 23
+Puerto De Morro Jable
+Estación Insular De Guaguas
+Avenida Diego Miller, 2
+Calle Antigua, 12
+Calle El Henequen, 15
+FV-20, 7
+Travesía Llanos Pelados, 9
+Parada
+Parada
+Parada
+Lomo Blanco
+Lugar Diseminado Triquivijate, 45
+FV-413, 11
+Carretera Triquivijate, 120
+Calle García Hernández, 18
+FV-413, 2
+Calle Virgen De Antigua, 61
+FV-20, 33
+Calle Isla De Lobos, 1
+Agregado Agua De Bueyes, 78
+Calle Matías Hernández López, 2
+Calle La Ereta, 9
+Calle D, 58
+Diseminado Calle Eustaquio Gopar, 1
+Barrio Las Rosas, 4
+Barrio Florida, 4
+Lugar Llanos De La Higuera Ip01, 7e
+Llanos De La Higuera I, 35
+FV-2
+Diseminado Degollada Del Moro, 2
+Diseminado Degollada Del Moro, 7
+Lugar Tarajalejo, 55
+Lugar Tarajalejo, 19
+Lugar Tarajalejo, 37
+Lugar Tarajalejo, 12
+Urbanización Herbania, 22
+FV-2
+FV-2 y FV-56
+Carretera General Jandía, 22
+Calle Montaña Azufra, 5
+Esquinzo-Butihondo, 2a
+Calle La Parábola, 11
+Mal Nombre
+FV-2, 2
+Gaviotas
+Calle El Quijote, 1
+Avenida Del Saladar, 23
+FV-2, 3
+Avenida Del Saladar, 2
+
+
+Sentido: Puerto del Rosario - Triquivijate - Puerto De Morro Jable
+Número de Paradas: 55
+Duración del Viaje: 116 minutos
+Horario:
+Lunes a Viernes: 13:30
+Sábados y Domingos: Sin servicio
+Paradas:
+Estación Insular De Guaguas
+Avenida Diego Miller, 2
+Calle Antigua, 12
+Calle El Henequen, 15
+FV-20, 7
+Travesía Llanos Pelados, 9
+Parada
+Parada
+Parada
+Lomo Blanco
+Lugar Diseminado Triquivijate, 45
+FV-413, 11
+Carretera Triquivijate, 120
+Calle García Hernández, 18
+FV-413, 2
+Calle Virgen De Antigua, 61
+FV-20, 33
+Calle Isla De Lobos, 1
+Agregado Agua De Bueyes, 78
+Calle Matías Hernández López, 2
+Calle La Ereta, 9
+Calle D, 58
+Diseminado Calle Eustaquio Gopar, 1
+Barrio Las Rosas, 4
+Barrio Florida, 4
+Lugar Llanos De La Higuera Ip01, 7e
+Llanos De La Higuera I, 35
+FV-2
+Diseminado Degollada Del Moro, 2
+Diseminado Degollada Del Moro, 7
+Lugar Tarajalejo, 55
+Lugar Tarajalejo, 19
+Lugar Tarajalejo, 37
+Lugar Tarajalejo, 12
+Urbanización Herbania, 22
+FV-2
+FV-2 y FV-56
+Carretera General Jandía, 22
+Calle La Serreta, 1
+Calle Montaña Azufra, 5
+Esquinzo-Butihondo, 2a
+Calle La Parábola, 11
+Mal Nombre
+FV-2, 2
+Gaviotas
+Calle El Quijote, 1
+Avenida Del Saladar, 23
+FV-2, 3
+Avenida Del Saladar, 2
+Calle Buenavista, 15
+Calle Taifa, 2
+Calle Pastores, 2
+Calle Manuel Sánchez Ramos, 11
+Calle Los Atolladeros, 23
+Puerto De Morro Jable
 
 
 Los autobuses de Fuerteventura son la opción más económica para moverse por la isla. Si no disponéis de coche de alquiler, podéis utilizar los autobuses para desplazaros a través de gran parte de los pueblos, ciudades, playas y calas de la isla. Los autobuses de Fuerteventura son el principal medio de transporte público de la isla. La red de autobuses conecta las principales ciudades y playas, además de conectar algunos pequeños pueblos con la capital y las principales localidades de la isla. Durante los últimos años la flota de autobuses interurbanos se ha modernizado y ahora es una de las más modernas de todo el archipiélago canario. 
