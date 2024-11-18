@@ -8,7 +8,7 @@ from PyPDF2 import PdfReader
 from datetime import datetime
 
 # Set up OpenAI API key
-openai.api_key = st.secrets["OpenAI_key"]
+openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 # Function to get response from OpenAI
 def get_response(messages):
