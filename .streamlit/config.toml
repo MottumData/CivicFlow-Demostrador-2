@@ -4,9 +4,7 @@ primaryColor="#2d5970"
 
 [server]
 runOnSave = true
+fileWatcherType = "none"
 
 [ui]
 hideTopBar = true
-
-[server]
-fileWatcherType = "none"
