@@ -12,8 +12,7 @@ from src.pages.pag4_demostrador_2 import show_demostrador_page
 from PIL import Image
 
 st.set_page_config(
-    page_title="Agente de transporte", 
-    page_icon="🚌", 
+    page_title="Agente de transporte",  
     initial_sidebar_state="expanded", 
     layout="wide",
     menu_items={
@@ -44,11 +43,11 @@ load_dotenv()
 with st.sidebar:
     st.image("assets/img/logo_CyG.png", use_column_width=True)
     
-    st.markdown("### Información Importante")
-    st.info("Diseñado por Control y Gestión.")
+    st.markdown("### Sistema de participación ciudadana para el transporte.")
+    st.markdown("Este agente de transporte permite obtener información sobre el transporte público de la ciudad, registrar reclamaciones, hacer sugerencias y recibir asistencia en tiempo real.")
     
     # Disclaimers
-    st.markdown("### Disclaimers")
+    st.markdown("### Advertencias")
     st.warning("Nuestros modelos pueden sufrir alucinaciones. 🤖")
 
 
@@ -82,7 +81,7 @@ def main():
     st.markdown(
         """
         <div class="main-title">
-            <h1>Sistema de participación ciudadana 🚌</h1>
+            <h1>Sistema de participación ciudadana</h1>
         </div>
         """,
         unsafe_allow_html=True
