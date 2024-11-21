@@ -70,9 +70,6 @@ def show_demostrador_page():
         
     fecha_hoy = datetime.now().strftime("%d/%m/%Y")
         
-    st.warning("Este asistente virtual está diseñado para ayudar con cuestiones de transporte público. Por favor, asegúrese de proporcionar información precisa para obtener la mejor asistencia posible.")
-
-    
     # Initialize chat history
     # Inicializar historial de chat
     st.markdown(
