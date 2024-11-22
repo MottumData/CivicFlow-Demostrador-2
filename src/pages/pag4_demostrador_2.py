@@ -13,8 +13,7 @@ openai.api_key = st.secrets["OPENAI_API_KEY"]
 expected_keys = {
         'Fecha de la Incidencia', 'Nombre de usuario y apellido', 'DNI', 'Teléfono', 'Consulta, Sugerencia o Incidencia',
         'Problema', 'Descripción de Consulta/Incidencia/Sugerencia', 'Lugar', 'Hora',
-        'Tiempo de resolución', 'Satisfacción del cliente', 'Línea de bus implicada',
-        'Resolución', 'Prioridad', 'Dirección postal o electrónica'
+        'Tiempo de resolución', 'Satisfazcción postal o electrónica'
     }
     
 # Function to get response from OpenAI
