@@ -11,10 +11,22 @@ from datetime import datetime
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 expected_keys = {
-        'Fecha de la Incidencia', 'Nombre de usuario y apellido', 'DNI', 'Teléfono', 'Consulta, Sugerencia o Incidencia',
-        'Problema', 'Descripción de Consulta/Incidencia/Sugerencia', 'Lugar', 'Hora',
-        'Tiempo de resolución', 'Satisfazcción postal o electrónica'
-    }
+    'Fecha de la Incidencia',
+    'Nombre de usuario y apellido',
+    'DNI',
+    'Teléfono',
+    'Consulta, Sugerencia o Incidencia',
+    'Problema',
+    'Descripción de Consulta/Incidencia/Sugerencia',
+    'Lugar',
+    'Hora',
+    'Tiempo de resolución',
+    'Satisfacción del cliente',  # Corregido
+    'Línea de bus implicada',    # Añadido
+    'Resolución',                # Añadido
+    'Prioridad',                 # Añadido
+    'Dirección postal o electrónica'  # Añadido
+}
     
 # Function to get response from OpenAI
 def get_response(messages):
@@ -32,11 +44,12 @@ def extract_summary(response_text):
     for line in lines:
         for key in expected_keys:
             if key in line:
-                # Extract the value after the colon and strip any leading/trailing whitespace
-                value = line.split(':', 1)[1].strip()
-                # Remove any leading asterisks and whitespace
-                value = value.lstrip('*').strip()
-                summary_data[key] = value
+                if ':' in line:
+                    # Extract the value after the colon and strip any leading/trailing whitespace
+                    value = line.split(':', 1)[1].strip()
+                    # Remove any leading asterisks and whitespace
+                    value = value.lstrip('*').strip()
+                    summary_data[key] = value
     return summary_data
 
 def send_to_webhook(data):
