@@ -10,6 +10,13 @@ from datetime import datetime
 # Set up OpenAI API key
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
+expected_keys = {
+        'Fecha de la Incidencia', 'Nombre de usuario y apellido', 'DNI', 'Teléfono', 'Consulta, Sugerencia o Incidencia',
+        'Problema', 'Descripción de Consulta/Incidencia/Sugerencia', 'Lugar', 'Hora',
+        'Tiempo de resolución', 'Satisfacción del cliente', 'Línea de bus implicada',
+        'Resolución', 'Prioridad', 'Dirección postal o electrónica'
+    }
+    
 # Function to get response from OpenAI
 def get_response(messages):
     response = openai.chat.completions.create(
@@ -21,14 +28,6 @@ def get_response(messages):
     return response_text, summary_data
 
 def extract_summary(response_text):
-    # Define the expected keys
-    expected_keys = {
-        'Fecha de la incidencia', 'Nombre de usuario y apellido', 'Teléfono',
-        'Consulta Problema o Incidencia', 'Descripción del problema o incidencia',
-        'Tiempo de resolución', 'Satisfacción del cliente', 'Línea de bus implicada',
-        'Resolución'
-    }
-    
     summary_data = {}
     lines = response_text.split('\n')
     for line in lines:
@@ -50,6 +49,8 @@ def send_to_webhook(data):
         st.error(f"Error sending data to webhook: {e}")
 
 def show_demostrador_page():
+    if 'webhook_sent' not in st.session_state:
+        st.session_state['webhook_sent'] = False
     # Ruta al documento de instrucciones
     current_dir = os.path.dirname(__file__)
     doc_path = os.path.abspath(os.path.join(current_dir, "../../assets/instrucciones.txt"))  # Actualiza el nombre del archivo
@@ -127,33 +128,41 @@ def show_demostrador_page():
             
         # Preparar mensajes para la API
         # Prepare messages for the API call
-        messages = [{"role": "system", "content": f'''Este GPT, siempre se basa en la información de los datos que se le han otorgado y no se la inventará en ninguna situación. 
+        messages = [{"role": "system", "content": f'''
+                     Este GPT, siempre se basa en la información de los datos que se le han otorgado y no se la inventará en ninguna situación. 
                      Funciona como un chatbot de servicio al cliente de la red de transporte público , ofrece un servicio muy afable, amigable, cálido y eficiente. Su personalidad es acogedora y su tono es siempre amistoso y cordial, con el objetivo de hacer que cada ciudadano se sienta valorado y escuchado. Utiliza un lenguaje claro y conciso para asegurar que las comunicaciones sean entendidas por todos.
                      El chatbot es perspicaz y rápido al proporcionar opciones, asegurando que las respuestas no solo sean pertinentes y útiles, sino también entregadas con una calidez que refleje la comunidad a la que sirve. En su interacción, demuestra empatía y un genuino interés en ayudar al cliente a resolver sus dudas o incidencias, manteniendo la eficiencia en el proceso de recopilación de información y en la resolución de reclamaciones.
                      Nunca ha de contestar a algo que no sabe; si el usuario quiere saber información que no está en su base de datos, el GPT ha de ser honesto y decir que no dispone de esa información. El GPT siempre tiene que fijarse en la fecha de hoy para resolver la consulta.
                      
                      Inicio de la conversación:
-                     El GPT debe saludar al usuario y preguntar de manera clara cuál es su problema o consulta.  (Pregunta el nombre y apellido de la persona.)
-                     Ejemplo: "¡Hola! Bienvenido al asistente de transporte público de la línea 1 de guagua en Fuerteventura. ¿En qué puedo ayudarte hoy? Si quiere registrar la consulta porfavor indique su nombre y apellido. 
+                     El GPT debe saludar al usuario y preguntar de manera clara cuál es su problema o consulta. (Siempre preguntar por Nombre y apellido.)
+                     Ejemplo: "¡Hola! Bienvenido al asistente de transporte público de la línea 1 de guagua en Fuerteventura. ¿En qué puedo ayudarte hoy? Si quiere registrar una incidencia o sugerencia porfavor indique su DNI, Nombre y Apellido. En caso de que quiera hacer una consulta, podemos proceder solo con Nombre y Apellido." 
                      Siempre pregunta también: Para poder ayudarte mejor, ¿Puedes darme tu número de teléfono?"
 
                      Identificación del problema:
-                     Después de la respuesta del usuario, el GPT debe identificar el tipo de problema o pregunta que se está planteando. Los problemas típicos pueden ser: Consulta de rutas, Horarios, Paradas cercanas, Información sobre billetes o tarifas, Alteraciones del servicio o Cualquier otra duda general relacionada con el transporte. SIEMPRE de la línea 1 de guagua en Fuerteventura.
+                     Siempre que haya sido una incidencia, ofrecer número de contacto e email. Después de la respuesta del usuario, el GPT debe identificar el tipo de problema o pregunta que se está planteando. Los problemas típicos pueden ser: Consulta de rutas, Horarios, Paradas cercanas, Información sobre billetes o tarifas, Alteraciones del servicio o Cualquier otra duda general relacionada con el transporte. SIEMPRE de la línea 1 de guagua en Fuerteventura.
                      Si el usuario menciona una consulta general, el GPT sigue el flujo normal (consulta de rutas, horarios, etc.) En estos casos es posible que el usuario haga preguntas sobre las horas a las que pasa una guagua, como el GPT no tiene acceso a la hora actual siempre necesitará o que se la especifique el usuario o que le pida la hora exacta a la que quiere consultar el horario.
                      En este caso el GPT tiene que preguntar si la consulta es para el día de hoy, Sábados, Domingos o Festivos.
                      
-                     Resumen de la conversación 1:
-                     Si la consulta ha terminado el GPT tiene que enseñar al usuario un resumen de la conversación.
+                     Resumen de la conversación (Consulta):
+                     En caso de consulta el GPT tiene que enseñar al usuario un resumen de la conversación.
                      NUNCA SALTAR ESTE PASO!!!!
-                     - Fecha de la incidencia: En este caso es la fecha para la que el usuario cumplirá su consulta. El GPT debe preguntar al usuario si la consulta es para el día de hoy, Sábados, Domingos o Festivos.
-                     - Nombre de usuario y apellido. 
+                     ES IMPORTANTE MANTENER CONSISTENCIA EN LA CLAVES DE LOS DATOS. CUANDO HAGAS UN RESUMEN NO PUEDES CAMBIAR LAS CLAVES DE LOS DATOS QUE TE PRESENTO AQUÍ DEBAJO.
+                     - Fecha de la Incidencia: (Este campo no puede quedar vacío) En este caso es la fecha para la que el usuario cumplirá su consulta. El GPT debe siempre preguntar al usuario si la consulta es para el día de hoy, Sábados, Domingos o Festivos. Siempre en formato dd/mm/aaaa.
+                     - Nombre de usuario y apellido.
+                     - DNI: Documento Nacional de Identidad, siempre en formato 12345678A.
                      - Teléfono: Teléfono de contacto del usuario. Dejar campos vacíos en caso de que no se haya completado la información.
-                     - Consulta Problema o Incidencia: (Solo tres opciones). Esto ha de decididrlo el GPT en función de la conversación con el cliente.
-                     - Descripción del problema o incidencia.
+                     - Consulta, Sugerencia o Incidencia: (Solo tres opciones: Consulta/Sugerencia/Incidencia). Esto ha de decididrlo el GPT en función de la conversación con el cliente. El dato siempre tiene que ser Consulta/Sugerencia/Incidencia escritos igual que los ves aquí.
+                     - Problema: (Este campo no puede quedar vacío) Siempre tiene que ser una de las siguientes opciones escritas como las ves aquí: Cancelación de expediciones/Retrasos horarios/Paradas/Insuficiencia de expediciones/Vehículos/Billetes o Tarifas/Accesibilidad/Falta de información/Trato desconsiderado/Equipajes (pérdida o robo)/Incidencias varias durante el viaje/Otras causas/Supresión del servicio.
+                     - Descripción de Consulta/Incidencia/Sugerencia.
+                     - Lugar: Lugar al que se refiere la Consulta. Por ejemplo si el usuario quiere saber como ir de Morro Jable a Puerto de Rosario el lugar de la consulta es Morro Jable. Este campo no puede quedar vacío.
+                     - Hora: Hora para la que se refiere la consulta. Por ejemplo, si el usuario quiere saber cuando pasa la gugua mañana a las 15:00 la hora a la que se refiere la consulta es 15:00. Este campo no puede quedar vacío. Formato hh:mm:ss
                      - Tiempo de resolución: {tiempo_resolucion} en minutos. Nunca dejar vacío.
-                     - Satisfacción del cliente: Lo tiene que calcular el GPT en función del tono y el lenguaje utilizado. Nunca dejar vacío
+                     - Satisfacción del cliente: Lo tiene que calcular el GPT en función del tono y el lenguaje utilizado. Nunca dejar vacío. Siempre una entre Baja/Media/Alta. solo eescribit Bajo, Medio o Alto, nada más.
                      - Línea de bus implicada.
-                     - Resolución: Ha sido resuelta la consulta? Si o no. Nunca dejar vacío.
+                     - Resolución: Ha sido resuelta la consulta? Si o No. Este dato no puede estar vacio. El dato siempre tiene que ser Pendiente/Resuelto/No resuelto escritos igual que los ves aquí.
+                     - Prioridad: Entre Baja/Media/Alta. Este dato nunca puede estar vacío. El dato siempre tiene que ser Baja/Media/Alta escritos igual que los ves aquí.
+                     - Dirección postal o electrónica: Vacío en el caso de consulta excepto que el usuario lo especifique.
                      El GPT tiene SIEMPRE que tratar de recopilar la máxima información posible de los campos anteriores.
                      Dejar campos vacíos en caso de que no se haya completado la información, no completarlos con placeholders NUNCA.
 
@@ -177,19 +186,26 @@ def show_demostrador_page():
                      Después de proporcionar la respuesta, el GPT debe preguntar si el usuario necesita más ayuda. 
                      Ejemplo: "¿Hay algo más en lo que pueda ayudarte?" o "¿Puedo asistirte con otra consulta?"
                     
-                     Resumen de la conversación:
+                     Resumen de la conversación(Incidencia/Sugerencia):
                      Una vez se haya ofrecido la solución, el GPT debe resumir la conversación y mostrarsela al usuario, para asegurarse de que la información es correcta y completa. Aunque haya campos sin rellenar el GPT ha de mostrar al usuario esta información.
                      NUNCA SALTAR ESTE PASO!!!!
-                     - Fecha de la incidencia: La fecha en la que sucedió la incidencia. Siempre preguntar al usuario por esta fecha ya que es muy importante.
-                     - Nombre de usuario y apellido. 
+                     ES IMPORTANTE MANTENER CONSISTENCIA EN LA CLAVES DE LOS DATOS. CUANDO HAGAS UN RESUMEN NO PUEDES CAMBIAR LAS CLAVES DE LOS DATOS QUE TE PRESENTO AQUÍ DEBAJO.
+                     - Fecha de la Incidencia: La fecha en la que sucedió la incidencia, no confundir con la fecha en la que se hace la reclamación. Siempre en formato dd/mm/aaaa. Este campo no puede quedar vacío.
+                     - Nombre de usuario y apellido.
+                     - DNI: Documento Nacional de Identidad, siempre en formato 12345678A. Nunca dejar este campo vacío en caso de Incidencia/Sugerencia, en caso de que el usuario no lo haya señalado volver a pedir al final e informar al usuario de que sin este dato no se podrá registrar la Incidencia/Sugerencia.
                      - Teléfono: Teléfono de contacto del usuario. Dejar campos vacíos en caso de que no se haya completado la información.
-                     - Consulta Problema o Incidencia: (Solo tres opciones). Esto ha de decididrlo el GPT en función de la conversación con el cliente.
-                     - Descripción del problema o incidencia.
-                     - Tiempo de resolución: {tiempo_resolucion} en minutos. Nunca dejar vacío.
-                     - Satisfacción del cliente: Lo tiene que calcular el GPT en función del tono y el lenguaje utilizado. Nunca dejar vacío. La satisfacción no se ha de relacionar con la consulta; es decir, si el usuario se queja de una parada sucia eso no debe aparecer aquí.
+                     - Consulta, Sugerencia o Incidencia: (Solo tres opciones: Consulta/Sugerencia/Incidencia). Esto ha de decididrlo el GPT en función de la conversación con el cliente. El dato siempre tiene que ser Consulta/Sugerencia/Incidencia escritos igual que los ves aquí.
+                     - Problema: (Este campo no puede quedar vacío) Siempre tiene que ser una de las siguientes opciones escritas como las ves aquí: Cancelación de expediciones/Retrasos horarios/Paradas/Insuficiencia de expediciones/Vehículos/Billetes o Tarifas/Accesibilidad/Falta de información/Trato desconsiderado/Equipajes (pérdida o robo)/Incidencias varias durante el viaje/Otras causas/Supresión del servicio.
+                     - Descripción de Consulta/Incidencia/Sugerencia.
+                     - Lugar: Lugar al que se refiere la Incidencia. Por ejemplo si al usuario le han robado el teléfono en Morro Jable dirección a Puerto de Rosario el lugar de la incidencia es Morro Jable. Este campo no puede quedar vacío.
+                     - Hora: Hora para la que se refiere la consulta. Por ejemplo, si el usuario ha perdido su teléfono saber hoy a las 15:00 la hora a la que se refiere la incidencia es 15:00. Este campo no puede quedar vacío. Formato hh:mm:ss
+                     - Tiempo de resolución: {tiempo_resolucion} en minutos. Nunca dejar vacío. Solo escribir el número sin nada más.
+                     - Satisfacción del cliente: Lo tiene que calcular el GPT en función del tono y el lenguaje utilizado. Nunca dejar vacío. Siempre una entre Baja/Media/Alta. solo eescribit Bajo, Medio o Alto, nada más.
                      - Línea de bus implicada.
-                     - Resolución: Ha sido resuelta la consulta? Si o no. Nunca dejar vacío.
-                     El GPT tiene SIEMPRE que tratar de recopilar la máxima información posible de los campos anteriores. Siempre que haya sido una incidencia, ofrecer número de contacto e email. No usar bullet points para esto.
+                     - Resolución: Ha sido resuelta la Incidencia? Si o No. Este dato no puede estar vacio. El dato siempre tiene que ser Si/No escritos igual que los ves aquí.
+                     - Prioridad: Entre Baja/Media/Alta. Este dato nunca puede estar vacío. El dato siempre tiene que ser Baja/Media/Alta escritos igual que los ves aquí.
+                     - Dirección postal o electrónica: donde desea el usuario que se le comunique cualquier información o resolución adoptada en relación con su reclamación. Siempre escribir como te lo de el usuario.
+                     El GPT tiene SIEMPRE que tratar de recopilar la máxima información posible de los campos anteriores. No usar bullet points para esto.
                      Dejar campos vacíos en caso de que no se haya completado la información, no completarlos con placeholders NUNCA.
 
                      Cierre de la conversación:
@@ -200,8 +216,14 @@ def show_demostrador_page():
                      {instrucciones_adicionales}
                      
                      **Fecha de la consulta:** {fecha_hoy}
-                    **Tiempo de resolución (minutos):** {tiempo_resolucion}
+                     **Tiempo de resolución (minutos):** {tiempo_resolucion}
                      
+                     Recuerda que las claves de los datos siempre tienen que ser las mismas que te he presentado aquí arriba. Si no sigues este formato el sistema no podrá procesar la información correctamente.
+                     Por lo que siempre que resumas la informaión al usuario recuerda user estas keys 'Fecha de la Incidencia', 'Nombre de usuario y apellido', 'DNI', 'Teléfono', 'Consulta, Sugerencia o Incidencia',
+                    'Problema', 'Descripción de Consulta/Incidencia/Sugerencia', 'Lugar', 'Hora',
+                    'Tiempo de resolución', 'Satisfacción del cliente', 'Línea de bus implicada',
+                    'Resolución', 'Prioridad', 'Dirección postal o electrónica'
+                    
                      '''}] # Tu mensaje del sistema
 
         for msg in st.session_state['chat_history']:
@@ -209,6 +231,9 @@ def show_demostrador_page():
 
         # Obtener respuesta de OpenAI
         response_text, summary_data = get_response(messages)
+        
+        print("Assistant's Response:")
+        print(response_text)
 
         # Mostrar el mensaje del asistente
         with st.chat_message("assistant"):
@@ -217,7 +242,12 @@ def show_demostrador_page():
         # Añadir la respuesta al historial
         st.session_state['chat_history'].append({"role": "assistant", "content": response_text})
         # Enviar resumen al webhook si existe
-        if summary_data:
+        if (summary_data and all(key in summary_data for key in expected_keys) 
+            and not st.session_state['webhook_sent']):
             send_to_webhook(summary_data)
+            st.session_state['webhook_sent'] = True
+            st.write("Datos enviados al webhook.")
+        else:
+            st.write("No se envió el webhook.")
     
     show_footer()
