@@ -11,7 +11,7 @@ import dotenv
 load_dotenv()
 
 # Set up OpenAI API key
-openai.api_key = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY"))
+openai.api_key = os.getenv("OPENAI_API_KEY", st.secrets.get("OPENAI_API_KEY"))
 
 expected_keys = {
     'Fecha de la Incidencia',
