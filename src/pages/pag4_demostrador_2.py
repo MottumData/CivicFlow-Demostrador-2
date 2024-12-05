@@ -6,9 +6,12 @@ import re
 from src.utils import *
 from PyPDF2 import PdfReader
 from datetime import datetime
+import dotenv
+
+load_dotenv()
 
 # Set up OpenAI API key
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+openai.api_key = st.secrets.get("OPENAI_API_KEY", os.getenv("OPENAI_API_KEY"))
 
 expected_keys = {
     'Fecha de la Incidencia',
@@ -27,8 +30,10 @@ expected_keys = {
     'Prioridad',                 # Añadido
     'Dirección postal o electrónica'  # Añadido
 }
-    
+
 # Function to get response from OpenAI
+
+
 def get_response(messages):
     response = openai.chat.completions.create(
         model="gpt-4o-mini",
@@ -37,6 +42,7 @@ def get_response(messages):
     response_text = response.choices[0].message.content.strip()
     summary_data = extract_summary(response_text)
     return response_text, summary_data
+
 
 def extract_summary(response_text):
     summary_data = {}
@@ -52,21 +58,25 @@ def extract_summary(response_text):
                     summary_data[key] = value
     return summary_data
 
+
 def send_to_webhook(data):
-    webhook_url = 'https://hook.eu1.make.com/eqq7cxm5mtmlp5jbkiycbkddg8l6xgiu'  # Replace with your webhook URL
+    # Replace with your webhook URL
+    webhook_url = 'https://hook.eu1.make.com/eqq7cxm5mtmlp5jbkiycbkddg8l6xgiu'
     try:
         response = requests.post(webhook_url, json=data)
         response.raise_for_status()
     except requests.exceptions.RequestException as e:
         st.error(f"Error sending data to webhook: {e}")
 
+
 def show_demostrador_page():
     if 'webhook_sent' not in st.session_state:
         st.session_state['webhook_sent'] = False
     # Ruta al documento de instrucciones
     current_dir = os.path.dirname(__file__)
-    doc_path = os.path.abspath(os.path.join(current_dir, "../../assets/instrucciones.txt"))  # Actualiza el nombre del archivo
-    
+    doc_path = os.path.abspath(os.path.join(
+        current_dir, "../../assets/instrucciones.txt"))  # Actualiza el nombre del archivo
+
     # Leer el contenido del documento TXT
     try:
         with open(doc_path, "r", encoding="utf-8") as doc_file:
@@ -80,9 +90,9 @@ def show_demostrador_page():
     except Exception as e:
         st.error(f"Ocurrió un error al leer el archivo de instrucciones: {e}")
         instrucciones_adicionales = ""
-        
+
     fecha_hoy = datetime.now().strftime("%d/%m/%Y")
-        
+
     # Initialize chat history
     # Inicializar historial de chat
     st.markdown(
@@ -105,16 +115,16 @@ def show_demostrador_page():
     # Crear un contenedor para el chat
     chat_container = st.container()
     with chat_container:
-        chat_container.markdown('<div class="chat-container">', unsafe_allow_html=True)
+        chat_container.markdown(
+            '<div class="chat-container">', unsafe_allow_html=True)
         # Mostrar historial de chat
         for msg in st.session_state['chat_history']:
             with st.chat_message(msg['role']):
                 st.markdown(msg['content'])
         chat_container.markdown('</div>', unsafe_allow_html=True)
-    
+
     # Entrada del usuario
     user_input = st.chat_input("Escribe tu mensaje")
-    
 
     if user_input:
         # Mostrar el mensaje del usuario
@@ -122,8 +132,9 @@ def show_demostrador_page():
             st.markdown(user_input)
 
         # Añadir el mensaje al historial
-        st.session_state['chat_history'].append({"role": "user", "content": user_input})
-        
+        st.session_state['chat_history'].append(
+            {"role": "user", "content": user_input})
+
         # Establecer la hora de inicio en el primer mensaje del usuario
         if st.session_state['start_time'] is None:
             st.session_state['start_time'] = datetime.now()
@@ -134,10 +145,11 @@ def show_demostrador_page():
         # Calcular el tiempo de resolución si ya hubo una conversación
         if st.session_state['start_time']:
             duracion = datetime.now() - st.session_state['start_time']
-            tiempo_resolucion = int(duracion.total_seconds() // 60)  # Tiempo en minutos
+            tiempo_resolucion = int(
+                duracion.total_seconds() // 60)  # Tiempo en minutos
         else:
             tiempo_resolucion = 0  # Inicialmente en 0
-            
+
         # Preparar mensajes para la API
         # Prepare messages for the API call
         messages = [{"role": "system", "content": f'''
@@ -236,14 +248,14 @@ def show_demostrador_page():
                     'Tiempo de resolución', 'Satisfacción del cliente', 'Línea de bus implicada',
                     'Resolución', 'Prioridad', 'Dirección postal o electrónica'
                     
-                     '''}] # Tu mensaje del sistema
+                     '''}]  # Tu mensaje del sistema
 
         for msg in st.session_state['chat_history']:
             messages.append({"role": msg['role'], "content": msg['content']})
 
         # Obtener respuesta de OpenAI
         response_text, summary_data = get_response(messages)
-        
+
         print("Assistant's Response:")
         print(response_text)
 
@@ -252,15 +264,16 @@ def show_demostrador_page():
             st.markdown(response_text)
 
         # Añadir la respuesta al historial
-        st.session_state['chat_history'].append({"role": "assistant", "content": response_text})
+        st.session_state['chat_history'].append(
+            {"role": "assistant", "content": response_text})
         # Enviar resumen al webhook si existe
-        if (summary_data and all(key in summary_data for key in expected_keys) 
-            and not st.session_state['webhook_sent']):
+        if (summary_data and all(key in summary_data for key in expected_keys)
+                and not st.session_state['webhook_sent']):
             send_to_webhook(summary_data)
             st.session_state['webhook_sent'] = True
-            #st.write("Datos enviados al webhook.")
+            # st.write("Datos enviados al webhook.")
         else:
             pass
-            #st.write("No se envió el webhook.")
-    
+            # st.write("No se envió el webhook.")
+
     show_footer()
