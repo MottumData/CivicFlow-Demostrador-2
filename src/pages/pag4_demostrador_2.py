@@ -38,7 +38,6 @@ def get_response(messages):
     response = openai.chat.completions.create(
         model="gpt-4o-mini",
         messages=messages,
-        api_key=os.getenv("OPENAI_API_KEY")
         
     )
     response_text = response.choices[0].message.content.strip()
