@@ -258,8 +258,9 @@ def show_demostrador_page():
             and not st.session_state['webhook_sent']):
             send_to_webhook(summary_data)
             st.session_state['webhook_sent'] = True
-            st.write("Datos enviados al webhook.")
+            #st.write("Datos enviados al webhook.")
         else:
-            st.write("No se envió el webhook.")
+            pass
+            #st.write("No se envió el webhook.")
     
     show_footer()
