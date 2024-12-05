@@ -6,7 +6,7 @@ import re
 from src.utils import *
 from PyPDF2 import PdfReader
 from datetime import datetime
-import dotenv
+from dotenv import load_dotenv
 
 load_dotenv()
 
@@ -37,7 +37,9 @@ expected_keys = {
 def get_response(messages):
     response = openai.chat.completions.create(
         model="gpt-4o-mini",
-        messages=messages
+        messages=messages,
+        api_key=os.getenv("OPENAI_API_KEY")
+        
     )
     response_text = response.choices[0].message.content.strip()
     summary_data = extract_summary(response_text)
