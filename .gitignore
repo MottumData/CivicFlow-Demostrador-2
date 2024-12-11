@@ -319,4 +319,4 @@ pyrightconfig.json
 # MAC
 .DS_Store
 ## FOR THIS PROJECT (Provisional)
-.streamlit/scecrets.toml
+.streamlit/secrets.toml
