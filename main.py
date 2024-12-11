@@ -46,6 +46,53 @@ with st.sidebar:
     st.markdown("### Sistema de participación ciudadana para el transporte.")
     st.markdown("Este agente de transporte permite obtener información sobre el transporte público de la ciudad, registrar reclamaciones, hacer sugerencias y recibir asistencia en tiempo real.")
     
+    st.markdown("### Cuadro de mandos de incidencias")
+    st.markdown("Visita nuestro dashboard para ver las incidencias reportadas por los ciudadanos.")
+    st.markdown(
+        """
+        <style>
+        /* Estilos para el botón personalizado */
+        .custom-button {
+            background-color: #FF0000; /* Rojo */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        /* Efecto de sombra al pasar el cursor */
+        .custom-button:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Contenedor para centrar el botón */
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        </style>
+        
+        <div class="button-container">
+            <a href="https://www.apple.com" target="_blank">
+                <button class="custom-button">
+                    Visitar Dashboard
+                </button>
+            </a>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    
+    
+    
     # Disclaimers
     st.markdown("### Advertencias")
     st.warning("Nuestros modelos pueden sufrir alucinaciones. 🤖")
@@ -72,6 +119,9 @@ def main():
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    [data-testid="stSidebar"]{
+        max-width: 200px;
     }
     </style>
     """,
