@@ -142,6 +142,8 @@ dmypy.json
 #.git/
 #.gitignore
 # Mottum
+.streamlit/scecrets.toml
+.github/*
 
 
 
