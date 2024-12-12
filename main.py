@@ -43,8 +43,8 @@ load_dotenv()
 with st.sidebar:
     st.image("assets/img/logo_CyG.png", use_column_width=True)
     
-    st.markdown("### Sistema de participación ciudadana para el transporte.")
-    st.markdown("Este agente de transporte permite obtener información sobre el transporte público de la ciudad, registrar reclamaciones, hacer sugerencias y recibir asistencia en tiempo real.")
+    #st.markdown("### Sistema de participación ciudadana para el transporte.")
+    #st.markdown("Este agente de transporte permite obtener información sobre el transporte público de la ciudad, registrar reclamaciones, hacer sugerencias y recibir asistencia en tiempo real.")
     
     st.markdown("### Cuadro de mandos de incidencias")
     st.markdown("Visita nuestro dashboard para ver las incidencias reportadas por los ciudadanos.")
@@ -132,6 +132,14 @@ def main():
         """
         <div class="main-title">
             <h1>Sistema de participación ciudadana</h1>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+    st.markdown(
+        """
+        <div style="text-align: center; font-size: smaller;">
+            Este agente de transporte permite obtener información sobre el transporte público de la ciudad, registrar reclamaciones, hacer sugerencias y recibir asistencia en tiempo real.
         </div>
         """,
         unsafe_allow_html=True
