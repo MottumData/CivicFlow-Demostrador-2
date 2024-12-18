@@ -53,7 +53,7 @@ with st.sidebar:
         <style>
         /* Estilos para el botón personalizado */
         .custom-button {
-            background-color: #FF0000; /* Rojo */
+            background-color: #D3362A; /* Rojo */
             border: none;
             color: white;
             padding: 10px 20px;
@@ -81,7 +81,7 @@ with st.sidebar:
         </style>
         
         <div class="button-container">
-            <a href="https://www.apple.com" target="_blank">
+            <a href="https://airtable.com/appuQhUEXX0XCagcv/shrrJ8aHWdOapChtS" target="_blank">
                 <button class="custom-button">
                     Visitar Dashboard
                 </button>
